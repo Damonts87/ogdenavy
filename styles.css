@@ -1,0 +1,230 @@
+/* Universal Reset */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;  /* Ensure body and html take full height */
+}
+
+/* Body styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Navigation bar styles */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+}
+
+.brand {
+  flex-shrink: 0;
+  margin-right: auto;
+}
+
+.brand img {
+  height: 140px;
+  width: 200px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 50px;
+  margin: 0;
+  padding-right: 20px;
+  font-size: 27px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+  padding: 8px 16px;
+  transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: #575757;
+  text-decoration: underline;
+}
+
+/* Dropdown menu styles */
+.dropdown {
+  position: relative;  /* This ensures the dropdown menu is positioned relative to the parent li */
+}
+
+.dropdown .dropdown-menu {
+  display: none;  /* Hide the dropdown by default */
+  position: absolute;
+  top: 100%;  /* Position it directly below the "About" link */
+  left: 50%;  /* Center it horizontally */
+  transform: translateX(-50%);  /* Adjust to center it exactly */
+  background-color: #fff;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  min-width: 160px;
+  z-index: 1;
+  list-style: none;  /* Remove the list dots */
+  padding: 0;  /* Remove any default padding from the <ul> */
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;  /* Show the dropdown on hover */
+}
+
+.dropdown-menu li a {
+  padding: 10px 20px;
+  color: #333;  /* Color for the dropdown links */
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #ddd;  /* Highlight on hover */
+}
+
+/* Grid layout for main content */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.One, .Two {
+  height: 100%;
+  justify-content: space-between;
+}
+
+.One {
+  display: flex;
+  justify-content: center;  /* Center horizontally */
+  align-items: center;      /* Center vertically */
+}
+
+.One img {
+  height: 100%;  /* Make the image as tall as the container (Two) */
+  object-fit: cover;  /* Ensure the image covers the area while preserving its aspect ratio */
+}
+
+#Two {
+  position: relative;  /* Ensures that the carousel and buttons are positioned relative to this section */
+  transform: translateX(-20px); /* Move the carousel container left by 20px */
+}
+
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  object-fit: cover;
+  max-height: 400px; /* You can adjust the height as needed */
+}
+
+/* Navigation Buttons */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1000;
+  transform: translateY(-50%);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Footer styles */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  position: absolute;  /* Fix footer at the bottom */
+  bottom: 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;  /* Distribute the items across the available space */
+  align-items: center;  /* Vertically align items in the center */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-container div {
+  flex: 1;  /* Each section takes up equal space */
+  text-align: center;
+}
+
+.footer-address,
+.footer-social,
+.footer-contact {
+  flex: 1;
+}
+
+/* Style for the social media links */
+.footer-social a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: #3498db;  /* Change color on hover */
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;  /* Stack the sections vertically on smaller screens */
+    text-align: center;
+  }
+
+  .footer-address, .footer-social, .footer-contact {
+    margin-bottom: 20px;
+  }
+
+  .footer-social a {
+    margin: 0 10px;
+  }
+}
+
+section {
+  text-align: center;
+}
